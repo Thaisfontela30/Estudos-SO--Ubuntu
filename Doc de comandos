@@ -1,0 +1,31 @@
+# 💻 Comandos utilizados
+
+## Atualização e limpeza
+sudo apt update && sudo apt upgrade -y
+sudo apt autoremove -y
+sudo apt clean
+
+## Diagnóstico de serviços
+systemctl --failed
+sudo journalctl -p err -b
+sudo systemctl reset-failed
+sudo systemctl daemon-reload
+
+## Docker
+sudo apt install docker.io -y
+sudo systemctl enable --now docker
+
+## Libvirt
+sudo apt install --reinstall libvirt-daemon-system libvirt-clients -y
+sudo systemctl enable --now libvirtd
+
+## Livepatch
+sudo snap remove canonical-livepatch
+sudo rm -rf /var/snap/canonical-livepatch
+
+## Casper-md5check
+sudo systemctl disable --now casper-md5check.service
+
+## Módulo pcspkr
+sudo modprobe -r pcspkr
+echo "blacklist pcspkr" | sudo tee /etc/modprobe.d/nobeep.conf
