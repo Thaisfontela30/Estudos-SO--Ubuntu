@@ -1,0 +1,5 @@
+/docs
+   └── comandos.md   → lista completa dos comandos usados
+/scripts
+   └── manutencao.sh → script de manutenção
+README.md            → explicação clara do problema e solução
