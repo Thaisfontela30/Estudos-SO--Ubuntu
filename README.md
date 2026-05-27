@@ -4,7 +4,18 @@ Documentação da minha jornada autônoma estudando sistemas operacionais com Ub
 
 ---
 
-## 📖 O que aconteceu
+## 📚 Índice de Conteúdos
+
+- [Consertando Serviços Quebrados](#consertando-serviços-quebrados)
+- [Phased Updates (Faseamento de Atualizações)](#phased-updates)
+- [Tecnologias Utilizadas](#tecnologias-utilizadas)
+- [O que Aprendi](#o-que-aprendi)
+
+---
+
+## Consertando Serviços Quebrados
+
+### 📖 O que aconteceu
 
 Meu sistema Ubuntu estava apresentando problemas:
 
@@ -16,9 +27,7 @@ Meu sistema Ubuntu estava apresentando problemas:
 
 Em resumo: havia **serviços quebrados e pacotes inúteis** atrapalhando o funcionamento do sistema.
 
----
-
-## 🔧 Como eu consertei
+### 🔧 Como eu consertei
 
 Resolvi cada problema de forma prática:
 
@@ -30,14 +39,28 @@ Resolvi cada problema de forma prática:
 - Atualizei o sistema e limpei pacotes antigos com `apt update`, `apt upgrade`, `apt autoremove` e `apt clean`.
 - Resetei falhas antigas no **systemd** para deixar o sistema limpo.
 
----
-
-## ✅ Resultado
+### ✅ Resultado
 
 - O comando `systemctl --failed` mostrou **0 falhas**.
 - Docker e libvirt voltaram a funcionar normalmente.
 - O Livepatch foi removido com sucesso.
 - O sistema ficou atualizado, limpo e estável.
+
+---
+
+## Phased Updates
+
+### 🐧 Como Forçar Atualizações Retidas por Faseamento
+
+Aprendi como contornar o mecanismo de segurança do Ubuntu que retém atualizações em faseamento (phased updates).
+
+**Leia o guia completo:** [PHASED_UPDATES.md](./PHASED_UPDATES.md)
+
+**Comando rápido:**
+```bash
+apt update
+apt upgrade -o APT::Get::Always-Include-Phased-Updates=true -y
+```
 
 ---
 
@@ -47,20 +70,23 @@ Resolvi cada problema de forma prática:
 - **Docker**
 - **Libvirt**
 - **Systemd**
+- **APT** (Advanced Package Tool)
 
 ---
 
-## 🎓 O que aprendi
+## 🎓 O que Aprendi
 
 Este projeto documenta a importância de:
-- Monitorar serviços do sistema
-- Limpar pacotes desnecessários
-- Manter o sistema atualizado
+
+- Monitorar serviços do sistema e identificar falhas
+- Limpar pacotes e serviços desnecessários
+- Manter o sistema atualizado e estável
 - Resolver problemas de forma sistemática
+- Entender mecanismos de segurança do Ubuntu (como phased updates)
+- Usar o terminal de forma eficiente para troubleshooting
 
 ---
 
 ## 📝 Licença
 
 Este repositório é para fins educacionais.
-
